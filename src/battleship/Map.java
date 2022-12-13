@@ -13,7 +13,6 @@ public class Map {
             }
         }
     }
-
     public void displayMap() {
         System.out.println("  1 2 3 4 5 6 7 8 9 10");
         for (int i = 0; i < 10; i++) {
@@ -24,7 +23,6 @@ public class Map {
             System.out.println();
         }
     }
-
     public char getField(int i, int j) {
         return map[i][j];
     }
@@ -60,23 +58,4 @@ public class Map {
             }
         return true;
     }
-
-    /**
-     * Pobiera skrajne koordynaty statku i wypełnia mapę między tymi koordynayami "0"
-     * @param coordinates
-     */
-  /*  public void placeShip(int[] coordinates) {
-        //jesli wiersze maja ten sam numer to wykonaj zmień pola poziomo
-        if (coordinates[0] == coordinates[2]) {
-            for (int i = Math.min(coordinates[1], coordinates[3]); i <= Math.max(coordinates[1], coordinates[3]); i++) {
-                setField(coordinates[0], i, 'O');
-            }
-        }
-        if (coordinates[1] == coordinates[3]) {
-            for (int i = Math.min(coordinates[0], coordinates[2]); i <= Math.max(coordinates[0], coordinates[2]); i++) {
-                setField(i, coordinates[1], 'O');
-            }
-        }
-    }
-*/
 }

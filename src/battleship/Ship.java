@@ -9,9 +9,6 @@ public class Ship {
     private int hp;
     private int[][] shipCoordinates;
     private String name;
-
-    //private String[] position;
-
     public Ship(int fields, String name) {
         this.lenght = fields;
         this.hp = fields;
@@ -19,7 +16,6 @@ public class Ship {
         this.name = name;
     }
     public void initiateShip(Map map, Scanner sc) {
-
         System.out.printf("Enter the coordinates of the %s (%d cells)\n", name, lenght);
         boolean isInitiated = false;
         while(!isInitiated) {
@@ -29,7 +25,6 @@ public class Ship {
                 if (arePlaceCoordinateValid(coordinates, this.lenght)) {
                     if (map.checkNeighbourhood(coordinates)) {
                         setCoordinates(map, coordinates);
-                        //map.placeShip(coordinates);
                         isInitiated = true;
                     } else {
                         System.out.println("Error! You placed it to close to another one. Try again");
@@ -52,8 +47,6 @@ public class Ship {
     private int[] calculatePlaceCoordinates(String line) {
         String[] userCoordinates = line.split(" ");
         int[] coordinates = new int[4];
-        //System.out.printf("%s %s",userCoordinates[0], userCoordinates[1]);
-        //rozdzielenie pojedynczych wspolrzednych na numery kolumn i wierszy
         coordinates[0] = userCoordinates[0].substring(0, 1).charAt(0) - 65;//row1
         coordinates[2] = userCoordinates[1].substring(0, 1).charAt(0) - 65;//row2
         coordinates[1] = Integer.parseInt(userCoordinates[0].substring(1)) - 1;//col1
@@ -110,23 +103,10 @@ public class Ship {
             }
         }
     }
-
-    public void displayCoordinates() {
-        for (int i = 0; i < shipCoordinates.length; i++) {
-            System.out.println(Arrays.toString(shipCoordinates[i]));
-        }
-    }
-
     public boolean isShipHit(int[] coords) {
         for (int i = 0; i < shipCoordinates.length; i++) {
             if (coords[0] == shipCoordinates[i][0] && coords[1] == shipCoordinates[i][1]) {
                 hp -= 1;
-                //System.out.println(hp);
-                /*if (isShipSunk()) {
-                    System.out.println("You sank a ship!");
-                } else {
-                    System.out.println("You hit a ship!");
-                }*/
                 return true;
             }
         }
