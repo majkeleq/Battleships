@@ -23,6 +23,7 @@ public class Fleet {
     }
 
     public void initiateFleet(Map map, Scanner sc) {
+        map.displayMap();
         for (Ship ship : fleet) {
             ship.initiateShip(map,sc);
         }
@@ -42,11 +43,11 @@ public class Fleet {
                     if (fleetSize == 0) {
                         System.out.println("You sank the last ship. You won. Congratulations!");
                     } else {
-                        System.out.println("You sank a ship. Specify new target:");
+                        System.out.println("You sank a ship.");
                     }
                 }
                 else {
-                    System.out.println("You hit a ship! Try again:");
+                    System.out.println("You hit a ship!");
                 }
                 break;
             }
